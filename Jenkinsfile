@@ -32,11 +32,13 @@ pipeline {
             }
         }
 
-        stage('Deploy') { // 2 คะแนน: ผลรันเป็นสีเขียว
+        stage('Deploy') { 
             steps {
-                // Deploy แบบไม่ต้องใช้ --prebuilt เพื่อลดความผิดพลาด
-                sh "npx vercel --token ${vcp_4zA3ZPbZ4ATZrg1CnPGvfrWZJqbBr14lDpn7dOjIel6kUKgkEr43cI3K} --prod --yes"
+                // ใช้ npx เพื่อเรียกใช้ vercel โดยตรง 
+                // และใช้ "${VERCEL_TOKEN}" (มีเครื่องหมายคำพูดและ $) เพื่อดึงค่าจาก Credentials มาใช้
+                sh "npx vercel --token ${VERCEL_TOKEN} --name learn-jenkins-app --prod --yes"
             }
+        }
         }
     }
 
