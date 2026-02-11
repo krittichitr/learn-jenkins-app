@@ -35,7 +35,7 @@ pipeline {
         stage('Deploy') { // 2 คะแนน: ผลรันเป็นสีเขียว
             steps {
                 // Deploy แบบไม่ต้องใช้ --prebuilt เพื่อลดความผิดพลาด
-                sh "npx vercel --token ${VERCEL_TOKEN} --prod --yes"
+                sh "npx vercel --token ${vcp_4zA3ZPbZ4ATZrg1CnPGvfrWZJqbBr14lDpn7dOjIel6kUKgkEr43cI3K} --prod --yes"
             }
         }
     }
