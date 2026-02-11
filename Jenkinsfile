@@ -24,6 +24,19 @@ pipeline {
                 sh 'npm ci'
                 sh 'npm run build'
             }
+            stage('Test') {
+        steps {
+            sh 'npm test'
+        }
+    }
+    post {
+        always {
+            junit 'test-results/junit.xml'
+        }
+    }
+
+    
+
         }
     }
 }
